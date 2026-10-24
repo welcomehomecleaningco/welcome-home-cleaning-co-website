@@ -414,6 +414,40 @@
         letter-spacing: 0.2em;
       }
 
+      .assurance {
+        padding: 8px 0 24px;
+      }
+
+      .assurance-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .assurance-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 16px;
+        color: var(--brand-dark);
+      }
+
+      .assurance-item strong {
+        display: block;
+        color: var(--text);
+        font-size: 0.98rem;
+      }
+
+      .assurance-item span {
+        color: var(--muted);
+        font-size: 0.88rem;
+        line-height: 1.4;
+        display: block;
+      }
+
       .section {
         padding: 52px 0;
       }
@@ -839,6 +873,10 @@
           grid-template-columns: repeat(2, minmax(0, 1fr));
         }
 
+        .assurance-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
         .feature-grid,
         .proof-grid,
         .review-list,
@@ -880,6 +918,7 @@
 
         .service-grid,
         .review-list,
+        .assurance-grid,
         .field-row {
           grid-template-columns: 1fr;
         }
@@ -966,7 +1005,7 @@
           <a href="#faq">FAQ</a>
           <a href="#" class="nav-phone" data-phone-link aria-label="Call us">
             <svg class="icon"><use href="#i-phone"/></svg>
-            <span data-phone-text>07808341760</span>
+            <span data-phone-text>07XXX XXXXXX</span>
           </a>
           <a href="#quote" class="nav-cta">Get a Free Quote</a>
         </nav>
@@ -990,10 +1029,6 @@
             </div>
 
             <div class="trust-row">
-              <div>
-                <strong>1,200+</strong>
-                homes cleaned
-              </div>
               <div>
                 <strong>4.9/5</strong>
                 average rating
@@ -1031,6 +1066,27 @@
                 <div class="stars" role="img" aria-label="Five star rating">★★★★★</div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="assurance" aria-label="Our promises">
+        <div class="container assurance-grid">
+          <div class="assurance-item">
+            <svg class="icon"><use href="#i-shield"/></svg>
+            <div><strong>Fully insured</strong><span>Your home is protected on every visit.</span></div>
+          </div>
+          <div class="assurance-item">
+            <svg class="icon"><use href="#i-leaf"/></svg>
+            <div><strong>Eco-conscious products</strong><span>Kind to your family, pets and the planet.</span></div>
+          </div>
+          <div class="assurance-item">
+            <svg class="icon"><use href="#i-refresh"/></svg>
+            <div><strong>Satisfaction promise</strong><span>Not happy? Tell us within 24 hours and we'll put it right.</span></div>
+          </div>
+          <div class="assurance-item">
+            <svg class="icon"><use href="#i-clock"/></svg>
+            <div><strong>Open 7 days</strong><span>Weekday cleans and weekend resets.</span></div>
           </div>
         </div>
       </section>
@@ -1087,6 +1143,10 @@
               <a href="#quote" class="card-link" data-service="Domestic Clean">Get a quote →</a>
             </article>
           </div>
+
+          <p style="margin:22px 0 0; color:var(--muted); font-size:0.95rem;">
+            Prices are a starting guide. We view every property before confirming your final price, and any additional charges are added after we've seen it.
+          </p>
         </div>
       </section>
 
@@ -1105,8 +1165,8 @@
             </div>
             <div class="step">
               <div class="step-num">2</div>
-              <h3>We confirm and schedule</h3>
-              <p>We send you a clear price and agree a day and time that suits you.</p>
+              <h3>We view and confirm</h3>
+              <p>We come to view the property, then confirm your price, including any additional charges, and agree a day and time that suits you.</p>
             </div>
             <div class="step">
               <div class="step-num">3</div>
@@ -1203,6 +1263,17 @@
               </div>
               <p>“Fantastic service from start to finish. The property looked fresh, well cared for, and ready for the next tenant. We’ll definitely book again.”</p>
             </article>
+
+            <article class="review-card">
+              <div class="review-header">
+                <div>
+                  <h3>Taliyah Macdonald</h3>
+                  <span>Customer</span>
+                </div>
+                <div class="stars" role="img" aria-label="Five star review">★★★★★</div>
+              </div>
+              <p>“I never expected the results to turn out how they did, I was left satisfied with how tidy and organised everything was. No where was left untouched or disorganised, I'm happy. The mannerisms was so professional yet friendly, I would most definitely hire again.”</p>
+            </article>
           </div>
         </div>
       </section>
@@ -1213,7 +1284,7 @@
             <span class="eyebrow">Where we work</span>
             <h2 style="margin:12px 0 6px; letter-spacing:-0.03em;">Areas we cover</h2>
             <p style="margin:0; color:var(--muted);">
-              We clean homes, rentals and guest properties across Milton Keynes and the surrounding local areas.
+              We clean homes, rentals and guest properties across the areas below. Not on the list? Ask us — we may still be able to help.
             </p>
             <ul class="area-list">
               <li><svg class="icon"><use href="#i-pin"/></svg> Milton Keynes</li>
@@ -1231,11 +1302,11 @@
             <span class="eyebrow">Free quote</span>
             <h2>Tell us about your home.</h2>
             <p>
-              Fill in the form and we'll get back to you with a clear price. No obligation, no pressure.
+              Fill in the form and we'll get in touch. We need to come and view the property first, then we'll confirm your price, including any additional charges. No obligation, no pressure.
             </p>
             <p>
               Prefer to talk? Call
-              <a href="#" data-phone-link style="font-weight:700;color:var(--brand-dark);"><span data-phone-text>07808341760</span></a>
+              <a href="#" data-phone-link style="font-weight:700;color:var(--brand-dark);"><span data-phone-text>07XXX XXXXXX</span></a>
               or
               <a href="#" data-wa-link style="font-weight:700;color:var(--brand-dark);">message us on WhatsApp</a>.
             </p>
@@ -1316,6 +1387,10 @@
 
           <div class="faq-list">
             <details>
+              <summary>Do you need to see my property before giving a price?</summary>
+              <p>Yes. We come and view the property first so we can quote accurately. Once we've seen it, we'll confirm your price, including any additional charges, before any work starts.</p>
+            </details>
+            <details>
               <summary>Do I need to provide cleaning products and equipment?</summary>
               <p>No. We bring our own products and equipment. If you'd like us to use something specific, just let us know.</p>
             </details>
@@ -1371,7 +1446,7 @@
 
           <div>
             <h4>Contact</h4>
-            <p><a href="#" data-phone-link><span data-phone-text>07808341760</span></a></p>
+            <p><a href="#" data-phone-link><span data-phone-text>07XXX XXXXXX</span></a></p>
             <p><a href="mailto:hello@welcomehomecleaningco.com">hello@welcomehomecleaningco.com</a></p>
             <p>Open 7 days a week</p>
           </div>
@@ -1404,7 +1479,7 @@
 
     <script>
       var SITE = {
-        phoneDisplay: "07808341760",
+        phoneDisplay: "07808 341760",
         phoneIntl: "+447808341760",
         whatsapp: "447808341760",
         email: "hello@welcomehomecleaningco.com"
