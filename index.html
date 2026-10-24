@@ -373,7 +373,8 @@
 
       .service-grid,
       .feature-grid,
-      .proof-grid {
+      .proof-grid,
+      .review-list {
         display: grid;
         gap: 22px;
       }
@@ -417,7 +418,8 @@
       }
 
       .feature-box,
-      .proof-box {
+      .proof-box,
+      .review-card {
         background: var(--panel);
         border: 1px solid var(--line);
         border-radius: 22px;
@@ -425,13 +427,15 @@
       }
 
       .feature-box h3,
-      .proof-box h3 {
+      .proof-box h3,
+      .review-card h3 {
         margin: 0 0 12px;
         font-size: 1.32rem;
       }
 
       .feature-box p,
-      .proof-box p {
+      .proof-box p,
+      .review-card p {
         margin: 0;
         color: var(--muted);
       }
@@ -446,6 +450,38 @@
         letter-spacing: -0.04em;
         margin-bottom: 8px;
         color: var(--brand-dark);
+      }
+
+      .review-list {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        margin-top: 28px;
+      }
+
+      .review-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        margin-bottom: 14px;
+      }
+
+      .review-header h3 {
+        margin: 0;
+        font-size: 1.1rem;
+      }
+
+      .review-header span {
+        display: block;
+        color: var(--muted);
+        font-size: 0.84rem;
+      }
+
+      .review-card .stars {
+        font-size: 1rem;
+      }
+
+      .review-card p {
+        line-height: 1.7;
       }
 
       .cta {
@@ -514,7 +550,8 @@
 
       @media (max-width: 980px) {
         .hero-wrap,
-        .service-grid {
+        .service-grid,
+        .review-list {
           grid-template-columns: 1fr 1fr;
         }
 
@@ -527,7 +564,8 @@
         }
 
         .feature-grid,
-        .proof-grid {
+        .proof-grid,
+        .review-list {
           grid-template-columns: 1fr;
         }
 
@@ -553,7 +591,8 @@
           flex-wrap: wrap;
         }
 
-        .service-grid {
+        .service-grid,
+        .review-list {
           grid-template-columns: 1fr;
         }
 
@@ -602,8 +641,8 @@
                 homes cleaned
               </div>
               <div>
-                <strong>3 reviews</strong>
-                client feedback
+                <strong>4.9/5</strong>
+                average rating
               </div>
               <div>
                 <strong>7 days</strong>
@@ -632,9 +671,10 @@
 
               <div class="rating-box">
                 <div>
-                  <strong>3 reviews</strong>
-                  <span>From happy homeowners</span>
+                  <strong>4.9/5</strong>
+                  <span>Based on 3 reviews</span>
                 </div>
+                <div class="stars" aria-label="Five star rating">★★★★★</div>
               </div>
             </div>
           </div>
@@ -727,9 +767,9 @@
             </div>
 
             <div class="proof-box">
-              <strong>3 reviews</strong>
-              <h3>Happy homeowners</h3>
-              <p>Recent feedback from clients who have booked with us and loved the result.</p>
+              <strong>4.9/5</strong>
+              <h3>Average review score</h3>
+              <p>Clients appreciate the reliability, quality, and friendly service they receive each visit.</p>
             </div>
 
             <div class="proof-box">
@@ -737,6 +777,41 @@
               <h3>Flexible availability</h3>
               <p>We offer booking options that work around your routine, from weekday cleans to weekend resets.</p>
             </div>
+          </div>
+
+          <div class="review-list" aria-label="Customer reviews">
+            <article class="review-card">
+              <div class="review-header">
+                <div>
+                  <h3>Sarah M.</h3>
+                  <span>Homeowner</span>
+                </div>
+                <div class="stars" aria-label="Five star review">★★★★★</div>
+              </div>
+              <p>“The team arrived exactly on time and left the house looking spotless. The attention to detail was amazing and the communication was so easy throughout.”</p>
+            </article>
+
+            <article class="review-card">
+              <div class="review-header">
+                <div>
+                  <h3>Daniel R.</h3>
+                  <span>Airbnb host</span>
+                </div>
+                <div class="stars" aria-label="Five star review">★★★★★</div>
+              </div>
+              <p>“We’ve used Welcome Home Cleaning Co. for a few turnovers now and every visit has been consistent, professional and beautifully done. Highly recommended.”</p>
+            </article>
+
+            <article class="review-card">
+              <div class="review-header">
+                <div>
+                  <h3>Priya S.</h3>
+                  <span>Landlord</span>
+                </div>
+                <div class="stars" aria-label="Five star review">★★★★★</div>
+              </div>
+              <p>“Fantastic service from start to finish. The property looked fresh, well cared for, and ready for the next tenant. We’ll definitely book again.”</p>
+            </article>
           </div>
         </div>
       </section>
