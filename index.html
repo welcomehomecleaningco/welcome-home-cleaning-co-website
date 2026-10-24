@@ -19,7 +19,6 @@
         --text: #1d2a2c;
         --muted: #5f6f72;
         --line: #e7e0d5;
-        --gold: #caa55a;
         --shadow: 0 18px 40px rgba(32, 58, 54, 0.08);
       }
 
@@ -437,44 +436,6 @@
         color: var(--muted);
       }
 
-      .process {
-        background: var(--panel-alt);
-      }
-
-      .steps {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 22px;
-      }
-
-      .step {
-        background: var(--panel);
-        border: 1px solid var(--line);
-        border-radius: 22px;
-        padding: 24px 22px;
-      }
-
-      .step-number {
-        width: 44px;
-        height: 44px;
-        display: grid;
-        place-items: center;
-        border-radius: 12px;
-        background: var(--brand-soft);
-        color: var(--brand-dark);
-        font-weight: 700;
-        margin-bottom: 18px;
-      }
-
-      .step h3 {
-        margin: 0 0 10px;
-      }
-
-      .step p {
-        margin: 0;
-        color: var(--muted);
-      }
-
       .proof-grid {
         grid-template-columns: repeat(3, minmax(0, 1fr));
       }
@@ -566,7 +527,6 @@
         }
 
         .feature-grid,
-        .steps,
         .proof-grid {
           grid-template-columns: 1fr;
         }
@@ -614,7 +574,6 @@
         <nav class="nav-links" aria-label="Main navigation">
           <a href="#services">Services</a>
           <a href="#why-us">Why Us</a>
-          <a href="#process">How It Works</a>
           <a href="#reviews">Reviews</a>
           <a href="#contact" class="nav-cta">Book a Clean</a>
         </nav>
@@ -749,35 +708,6 @@
             <div class="feature-box">
               <h3>Friendly, trustworthy team</h3>
               <p>Our cleaners are dependable, respectful, and committed to delivering a stress-free experience.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="process" class="section process">
-        <div class="container">
-          <div class="section-header">
-            <span class="eyebrow">How it works</span>
-            <h2>Simple, smooth, and stress-free from start to finish.</h2>
-          </div>
-
-          <div class="steps">
-            <div class="step">
-              <div class="step-number">1</div>
-              <h3>Tell us about your home</h3>
-              <p>Share the size of your property, the type of clean you need, and any priorities or preferences.</p>
-            </div>
-
-            <div class="step">
-              <div class="step-number">2</div>
-              <h3>Choose your service</h3>
-              <p>We’ll recommend the right clean for your home, lifestyle, and time frame.</p>
-            </div>
-
-            <div class="step">
-              <div class="step-number">3</div>
-              <h3>Enjoy a fresh space</h3>
-              <p>Relax while our team takes care of every detail and leaves your home beautifully ready to enjoy.</p>
             </div>
           </div>
         </div>
