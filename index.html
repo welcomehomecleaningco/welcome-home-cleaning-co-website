@@ -6,6 +6,24 @@
     <title>House Cleaning in Milton Keynes | Welcome Home Cleaning Co.</title>
     <link rel="icon" type="image/svg+xml" href="logo.svg" />
     <meta name="theme-color" content="#0b1c47" />
+
+    <!-- Share preview (WhatsApp, Facebook, etc.) -->
+    <!-- NOTE: once the site is online, change og-image.png below to the full web address,
+         e.g. https://your-website.co.uk/og-image.png, and add an og:url line. Some apps
+         will not show the picture until you do. -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_GB" />
+    <meta property="og:site_name" content="Welcome Home Cleaning Co." />
+    <meta property="og:title" content="Welcome Home Cleaning Co. | House Cleaning in Milton Keynes" />
+    <meta property="og:description" content="Where every clean feels like a fresh start. Deep cleans, end of tenancy, domestic and serviced accommodation cleaning in Milton Keynes. Get a free quote." />
+    <meta property="og:image" content="og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Welcome Home Cleaning Co. logo: where every clean feels like a fresh start" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Welcome Home Cleaning Co. | House Cleaning in Milton Keynes" />
+    <meta name="twitter:description" content="Where every clean feels like a fresh start. Get a free quote today." />
+    <meta name="twitter:image" content="og-image.png" />
     <meta
       name="description"
       content="Welcome Home Cleaning Co. offers deep cleans, end of tenancy cleans, standard cleans, serviced accommodation turnovers and domestic and commercial cleaning in Milton Keynes. Where every clean feels like a fresh start."
@@ -26,14 +44,15 @@
 
     <style>
       :root {
+        /* Welcome Home Cleaning Co. colours (from the business card) */
         --bg: #f5f6f9;
         --panel: #ffffff;
         --panel-alt: #eceff6;
-        --brand: #0b1c47;
-        --brand-dark: #08153a;
-        --brand-soft: #e6eaf4;
+        --brand: #0b1c47;       /* navy */
+        --brand-dark: #08153a;  /* deeper navy */
+        --brand-soft: #e6eaf4;  /* light navy tint */
         --silver: #b5b9c2;
-        --silver-dark: #6f7686;
+        --silver-dark: #6f7686; /* silver, dark enough to read on white */
         --text: #121c3a;
         --muted: #4a5470;
         --line: #dfe2ea;
@@ -97,6 +116,7 @@
         margin: 0 auto;
       }
 
+      /* ---------- Header ---------- */
       .topbar {
         background: rgba(255, 255, 255, 0.92);
         backdrop-filter: blur(8px);
@@ -255,9 +275,58 @@
         transform: translateY(-1px);
       }
 
+      /* ---------- Hero ---------- */
       .hero {
         padding: 72px 0 40px;
+        position: relative;
+        overflow: hidden;
       }
+
+      .hero .container {
+        position: relative;
+        z-index: 1;
+      }
+
+      /* Shuffling photo background (switches on only when photos are found) */
+      .hero-bg {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        opacity: 0;
+        transition: opacity 0.8s ease;
+      }
+
+      .hero.has-photos .hero-bg {
+        opacity: 1;
+      }
+
+      .hero-bg::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(90deg, rgba(8, 21, 58, 0.86) 0%, rgba(8, 21, 58, 0.62) 50%, rgba(8, 21, 58, 0.30) 100%);
+      }
+
+      .hero-slide {
+        position: absolute;
+        inset: 0;
+        background-size: cover;
+        background-position: center;
+        opacity: 0;
+        transition: opacity 1.4s ease-in-out;
+      }
+
+      .hero-slide.on {
+        opacity: 1;
+      }
+
+      .hero.has-photos h1 { color: #ffffff; }
+      .hero.has-photos p { color: rgba(255, 255, 255, 0.92); }
+      .hero.has-photos .trust-row { color: rgba(255, 255, 255, 0.82); }
+      .hero.has-photos .trust-row strong { color: #ffffff; }
+      .hero.has-photos .eyebrow { background: rgba(255, 255, 255, 0.16); color: #ffffff; }
+      .hero.has-photos .primary-btn { background: #ffffff; color: var(--brand); box-shadow: none; }
+      .hero.has-photos .secondary-btn { color: #ffffff; border-color: rgba(255, 255, 255, 0.6); }
 
       .hero-wrap {
         display: grid;
@@ -282,7 +351,7 @@
         margin: 18px 0 18px;
         font-size: clamp(2.7rem, 5vw, 4.5rem);
         line-height: 1.08;
-        letter-spacing: -0.025em;
+        letter-spacing: -0.025em; /* loosened from -0.05em */
       }
 
       .hero p {
@@ -480,6 +549,7 @@
         letter-spacing: 0.2em;
       }
 
+      /* ---------- Trust strip ---------- */
       .assurance {
         padding: 8px 0 24px;
       }
@@ -514,6 +584,7 @@
         display: block;
       }
 
+      /* ---------- Sections ---------- */
       .section {
         padding: 52px 0;
       }
@@ -602,6 +673,7 @@
         text-decoration: underline;
       }
 
+      /* ---------- How it works ---------- */
       .steps-grid {
         grid-template-columns: repeat(3, minmax(0, 1fr));
       }
@@ -706,6 +778,7 @@
         line-height: 1.7;
       }
 
+      /* ---------- Service area ---------- */
       .area-box {
         background: var(--panel);
         border: 1px solid var(--line);
@@ -739,6 +812,7 @@
         height: 1.1em;
       }
 
+      /* ---------- Quote form ---------- */
       .quote-wrap {
         display: grid;
         grid-template-columns: 0.9fr 1.1fr;
@@ -779,7 +853,7 @@
         border-radius: 12px;
         background: #fff;
         font-family: inherit;
-        font-size: 1rem;
+        font-size: 1rem; /* 16px stops iPhones zooming in */
         color: var(--text);
       }
 
@@ -794,6 +868,7 @@
         color: var(--muted);
       }
 
+      /* ---------- FAQ ---------- */
       .faq-list {
         display: grid;
         gap: 12px;
@@ -838,6 +913,7 @@
         color: var(--muted);
       }
 
+      /* ---------- CTA + footer ---------- */
       .cta {
         padding: 56px 0 80px;
       }
@@ -920,10 +996,12 @@
         color: rgba(255, 255, 255, 0.65);
       }
 
+      /* ---------- Sticky mobile contact bar ---------- */
       .mobile-bar {
         display: none;
       }
 
+      /* ---------- Responsive ---------- */
       @media (max-width: 1100px) {
         .service-grid {
           grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -958,7 +1036,7 @@
         }
 
         .nav-phone span {
-          display: none;
+          display: none; /* keep just the phone icon on tablets */
         }
       }
 
@@ -973,7 +1051,7 @@
 
         .nav-links a[href="#faq"],
         .nav-phone {
-          display: none;
+          display: none; /* keeps the tablet header on one line */
         }
       }
 
@@ -994,7 +1072,7 @@
         }
 
         .nav-phone {
-          display: none;
+          display: none; /* the sticky bar covers this on phones */
         }
 
         .logo-mark {
@@ -1027,6 +1105,10 @@
           padding-top: 40px;
         }
 
+        .hero-bg::after {
+          background: rgba(8, 21, 58, 0.72);
+        }
+
         .cleaning-scene {
           min-height: 420px;
         }
@@ -1043,7 +1125,7 @@
         }
 
         body {
-          padding-bottom: 72px;
+          padding-bottom: 72px; /* room for the sticky bar */
         }
 
         .mobile-bar {
@@ -1067,12 +1149,14 @@
       }
 
       @media (prefers-reduced-motion: reduce) {
+        .hero-slide { transition: none; }
         html { scroll-behavior: auto; }
         .nav-cta, .primary-btn, .secondary-btn { transition: none; }
       }
     </style>
   </head>
   <body>
+    <!-- Icon library (one consistent line-icon set) -->
     <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
       <defs>
         <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></symbol>
@@ -1087,26 +1171,26 @@
         <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></symbol>
         <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11a7 7 0 0 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></symbol>
         <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7"/></symbol>
-        <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
 
         <symbol id="logo-mark" viewBox="0 0 640 370">
-          <g transform="translate(-175,-25)">
-            <path d="M251 285 V222 L415 66 L585 226" style="fill:none;stroke:currentColor;stroke-width:46;stroke-linejoin:miter"/>
-            <rect x="516" y="88" width="36" height="62" style="fill:currentColor"/>
-            <g style="fill:var(--silver)"><rect x="380" y="182" width="36" height="32"/><rect x="422" y="182" width="36" height="32"/><rect x="380" y="222" width="36" height="32"/><rect x="422" y="222" width="36" height="32"/></g>
-            <path d="M185 238 C188 335 340 398 530 336 L520 318 C375 360 238 322 185 238Z" style="fill:currentColor"/>
-            <path d="M228 282 C300 335 420 335 520 292 L522 304 C420 348 295 350 228 282Z" style="fill:var(--silver)"/>
-            <path d="M672 152 L622 236" style="fill:none;stroke:currentColor;stroke-width:14;stroke-linecap:round"/>
-            <path d="M604 236 C566 240 528 280 512 322 C535 350 565 360 592 364 C625 356 652 350 670 342 C652 322 640 292 630 256Z" style="fill:currentColor"/>
-            <path d="M600 246 C585 290 570 320 562 348 M618 252 C612 295 604 330 598 358 M634 266 C636 300 640 325 648 346" style="fill:none;stroke:var(--logo-bg);stroke-width:4;stroke-linecap:round"/>
-            <path d="M693 210 Q693 238 721 238 Q693 238 693 266 Q693 238 665 238 Q693 238 693 210Z" style="fill:var(--silver)"/>
-            <path d="M785 203 Q785 225 807 225 Q785 225 785 247 Q785 225 763 225 Q785 225 785 203Z" style="fill:currentColor"/>
-            <path d="M746 266 Q746 296 776 296 Q746 296 746 326 Q746 296 716 296 Q746 296 746 266Z" style="fill:currentColor"/>
-            <path d="M703 329 Q703 347 721 347 Q703 347 703 365 Q703 347 685 347 Q703 347 703 329Z" style="fill:currentColor"/>
-          </g>
+        <g transform="translate(-175,-25)">
+          <path d="M251 285 V222 L415 66 L585 226" style="fill:none;stroke:currentColor;stroke-width:46;stroke-linejoin:miter"/>
+          <rect x="516" y="88" width="36" height="62" style="fill:currentColor"/>
+          <g style="fill:var(--silver)"><rect x="380" y="182" width="36" height="32"/><rect x="422" y="182" width="36" height="32"/><rect x="380" y="222" width="36" height="32"/><rect x="422" y="222" width="36" height="32"/></g>
+          <path d="M185 238 C188 335 340 398 530 336 L520 318 C375 360 238 322 185 238Z" style="fill:currentColor"/>
+          <path d="M228 282 C300 335 420 335 520 292 L522 304 C420 348 295 350 228 282Z" style="fill:var(--silver)"/>
+          <path d="M672 152 L622 236" style="fill:none;stroke:currentColor;stroke-width:14;stroke-linecap:round"/>
+          <path d="M604 236 C566 240 528 280 512 322 C535 350 565 360 592 364 C625 356 652 350 670 342 C652 322 640 292 630 256Z" style="fill:currentColor"/>
+          <path d="M600 246 C585 290 570 320 562 348 M618 252 C612 295 604 330 598 358 M634 266 C636 300 640 325 648 346" style="fill:none;stroke:var(--logo-bg);stroke-width:4;stroke-linecap:round"/>
+          <path d="M693 210 Q693 238 721 238 Q693 238 693 266 Q693 238 665 238 Q693 238 693 210Z" style="fill:var(--silver)"/>
+          <path d="M785 203 Q785 225 807 225 Q785 225 785 247 Q785 225 763 225 Q785 225 785 203Z" style="fill:currentColor"/>
+          <path d="M746 266 Q746 296 776 296 Q746 296 746 326 Q746 296 716 296 Q746 296 746 266Z" style="fill:currentColor"/>
+          <path d="M703 329 Q703 347 721 347 Q703 347 703 365 Q703 347 685 347 Q703 347 703 329Z" style="fill:currentColor"/>
+        </g>
         </symbol>
         <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="0.8"/></symbol>
         <symbol id="i-facebook" viewBox="0 0 24 24"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8.5A.5.5 0 0 1 14 8z"/></symbol>
+        <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
       </defs>
     </svg>
 
@@ -1136,6 +1220,10 @@
 
     <main id="top">
       <section class="hero">
+        <div class="hero-bg" aria-hidden="true">
+          <div class="hero-slide"></div>
+          <div class="hero-slide"></div>
+        </div>
         <div class="container hero-wrap">
           <div>
             <span class="eyebrow">Where every clean feels like a fresh start</span>
@@ -1183,6 +1271,7 @@
               <div class="rating-box">
                 <div>
                   <strong>4.9/5</strong>
+                  <!-- REPLACE: link this to your real reviews page (Google is best), e.g. <a href="https://g.page/r/..."> -->
                   <span>Based on 3 reviews</span>
                 </div>
                 <div class="stars" role="img" aria-label="Five star rating">★★★★★</div>
@@ -1192,6 +1281,7 @@
         </div>
       </section>
 
+      <!-- Assurances -->
       <section class="assurance" aria-label="Our promises">
         <div class="container assurance-grid">
           <div class="assurance-item">
@@ -1202,6 +1292,7 @@
             <svg class="icon"><use href="#i-leaf"/></svg>
             <div><strong>Eco-conscious products</strong><span>Kind to your family, pets and the planet.</span></div>
           </div>
+          <!-- REPLACE the wording below with the guarantee you really offer -->
           <div class="assurance-item">
             <svg class="icon"><use href="#i-refresh"/></svg>
             <div><strong>Satisfaction promise</strong><span>Not happy? Tell us within 24 hours and we'll put it right.</span></div>
@@ -1210,6 +1301,12 @@
             <svg class="icon"><use href="#i-clock"/></svg>
             <div><strong>Open 7 days</strong><span>Weekday cleans and weekend resets.</span></div>
           </div>
+          <!-- Only add this one if it is true for your team:
+          <div class="assurance-item">
+            <svg class="icon"><use href="#i-check-circle"/></svg>
+            <div><strong>DBS-checked team</strong><span>Trusted people in your home.</span></div>
+          </div>
+          -->
         </div>
       </section>
 
@@ -1224,6 +1321,7 @@
             </p>
           </div>
 
+          <!-- Starting prices based on Milton Keynes market research (Oct 2026). Adjust to your own costs. -->
           <div class="service-grid">
             <article class="service-card">
               <div class="service-icon"><svg class="icon"><use href="#i-sparkles"/></svg></div>
@@ -1494,6 +1592,7 @@
             <h2>Frequently asked questions.</h2>
           </div>
 
+          <!-- REPLACE any answer that doesn't match how you really work -->
           <div class="faq-list">
             <details>
               <summary>Do you need to see my property before giving a price?</summary>
@@ -1583,28 +1682,23 @@
           </div>
         </div>
 
+        <!-- Add your registered company number here if you have one -->
         <div class="footer-small">
           © <span id="year">2026</span> Welcome Home Cleaning Co. All rights reserved.
-          <a href="#" style="text-decoration:underline;">Privacy policy</a> ·
-          <a href="#" style="text-decoration:underline;">Terms</a>
+          <a href="privacy-policy.html" style="text-decoration:underline;">Privacy policy</a>
         </div>
       </div>
     </footer>
 
+    <!-- Sticky Call / WhatsApp bar (phones only) -->
     <div class="mobile-bar">
       <a href="#" data-phone-link class="primary-btn"><svg class="icon" style="width:1.1em;height:1.1em"><use href="#i-phone"/></svg> Call</a>
       <a href="#" data-wa-link class="secondary-btn"><svg class="icon" style="width:1.1em;height:1.1em"><use href="#i-chat"/></svg> WhatsApp</a>
     </div>
 
+    <script src="site-config.js"></script>
     <script>
-      var SITE = {
-        phoneDisplay: "07808 341760",
-        phoneIntl: "+447808341760",
-        whatsapp: "447808341760",
-        instagram: "welcomehomecleaningc0",
-        facebookUrl: "",
-        email: ""
-      };
+      /* Your phone, WhatsApp, Instagram, Facebook and email are set in site-config.js */
 
       document.querySelectorAll("[data-phone-link]").forEach(function (a) {
         a.setAttribute("href", "tel:" + SITE.phoneIntl);
@@ -1637,12 +1731,73 @@
 
       document.getElementById("year").textContent = new Date().getFullYear();
 
+      /* ===== BACKGROUND PHOTOS (shuffled, fade between them) =====
+         Put your pictures in a folder called "photos" next to this file and list them here.
+         Any that are missing are skipped, and with no photos the page looks as it did before. */
+      var PHOTOS = [
+        "photos/photo-1.jpg",
+        "photos/photo-2.jpg",
+        "photos/photo-3.jpg",
+        "photos/photo-4.jpg"
+      ];
+      var SLIDE_SECONDS = 6;
+
+      (function () {
+        var hero = document.querySelector(".hero");
+        var layers = hero.querySelectorAll(".hero-slide");
+        var good = [];
+        var waiting = PHOTOS.length;
+        var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+        function shuffle(a) {
+          for (var i = a.length - 1; i > 0; i--) {
+            var j = Math.floor(Math.random() * (i + 1));
+            var t = a[i]; a[i] = a[j]; a[j] = t;
+          }
+          return a;
+        }
+
+        function start() {
+          if (!good.length) return;
+          shuffle(good);
+          var n = 0, front = 0;
+          function show() {
+            var next = layers[front];
+            var prev = layers[1 - front];
+            next.style.backgroundImage = 'url("' + good[n] + '")';
+            next.classList.add("on");
+            prev.classList.remove("on");
+            front = 1 - front;
+            n = (n + 1) % good.length;
+          }
+          show();
+          hero.classList.add("has-photos");
+          if (good.length > 1 && !reduceMotion) {
+            setInterval(show, SLIDE_SECONDS * 1000);
+          }
+        }
+
+        function check() {
+          waiting--;
+          if (waiting === 0) start();
+        }
+
+        PHOTOS.forEach(function (src) {
+          var img = new Image();
+          img.onload = function () { good.push(src); check(); };
+          img.onerror = check;
+          img.src = src;
+        });
+      })();
+
+      // Clicking "Get a quote" on a service card pre-selects it in the form
       document.querySelectorAll("[data-service]").forEach(function (link) {
         link.addEventListener("click", function () {
           document.getElementById("q-service").value = link.getAttribute("data-service");
         });
       });
 
+      // Quote form: checks the details, then opens WhatsApp (or email) with everything filled in
       var form = document.getElementById("quote-form");
       var status = document.getElementById("form-status");
 
